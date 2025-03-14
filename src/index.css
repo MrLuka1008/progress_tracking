@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Fredoka;
+  src: url(../src/assets/fonts/FredokaOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: FiraGo;
+  src: url(../src/assets/fonts/FiraGo-Regular.otf);
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: Fredoka, "sans-serif";
+  --font-firaGo: FiraGo, "sans-serif";
+  --color-first: #8338ec;
+  --text-logo: 31px;
+  /* --color-regal-blue: #243c5a; */
+}
