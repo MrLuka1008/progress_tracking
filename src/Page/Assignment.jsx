@@ -1,6 +1,10 @@
 import React from "react";
 import DepartmentDropdown from "../components/filterAssigments/Filter";
-import Test from "./test";
+import TaskProgress from "../components/taskProgress/TaskProgress";
+import JobForm from "../components/taskForm/TaskForm ";
+import Tasks from "../components/Tasks/Tasks";
+import TaskForm from "../components/taskForm/TaskForm ";
+// import Test from "./test";
 
 const Assignment = () => {
   return (
@@ -13,7 +17,10 @@ const Assignment = () => {
         <DepartmentDropdown />
       </div>
 
-      {/* <Test /> */}
+      <div>
+        <TaskProgress />
+        <Tasks />
+      </div>
     </div>
   );
 };

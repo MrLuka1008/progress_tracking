@@ -3,13 +3,6 @@ import { Menu } from "@headlessui/react";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
 import axios from "axios";
 
-// const departments = ["მარკეტინგი", "დიზაინი", "ლოგისტიკა", "IT"];
-//
-// const priorities = ["დაბალი", "საშუალო", "მაღალი", "კრიტიკული"];
-//
-
-const employees = ["გიორგი", "ნინო", "ლევანი", "მარიამი"];
-
 export default function SelectionDropdown() {
   const [selectedDepartments, setSelectedDepartments] = useState([]);
   const [selectedPriorities, setSelectedPriorities] = useState([]);
@@ -17,6 +10,9 @@ export default function SelectionDropdown() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [priorities, setPriorities] = useState([]);
   const [departments, setDepartments] = useState([]);
+  const [employees, setEmployees] = useState([]);
+
+  const token = import.meta.env.VITE_API_TOKEN;
 
   const toggleSelection = (option, setSelected, selected) => {
     setSelected((prev) => (prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option]));
@@ -43,6 +39,33 @@ export default function SelectionDropdown() {
           return item.name;
         })
       );
+    });
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("https://momentum.redberryinternship.ge/api/employees", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error("❌ Error fetching employees:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData().then((data) => {
+      if (data) {
+        setEmployees(
+          data.map((item) => {
+            return item.name;
+          })
+        );
+      }
     });
   }, []);
 
@@ -78,7 +101,7 @@ export default function SelectionDropdown() {
       </div>
 
       {/* არჩეული ფილტრები */}
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mb-4 flex flex-wrap gap-2">
         {[...selectedDepartments, ...selectedPriorities, ...selectedEmployees].map((filter) => (
           <span key={filter} className="flex items-center gap-2 px-3 py-1 bg-gray-200 rounded-full text-sm">
             {filter}{" "}

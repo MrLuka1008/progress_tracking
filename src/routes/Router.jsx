@@ -8,6 +8,8 @@ import { createBrowserRouter, RouterProvider, Route, Link, Outlet } from "react-
 // import Home from "../Page/Home";
 import Header from "../components/header/Header";
 import Assignment from "../Page/Assignment";
+// import JobForm from "../components/taskForm/TaskForm ";
+import TaskForm from "../components/taskForm/TaskForm ";
 // import Assignment from "../Page/Assignment";
 
 const Root = () => {
@@ -30,6 +32,11 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Assignment />,
+      },
+      {
+        index: true,
+        path: "jobForm",
+        element: <TaskForm />,
       },
     ],
   },

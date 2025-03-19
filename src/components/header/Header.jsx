@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Hourglass from "../header/Hourglass.png";
 import EmployeeModal from "../employeeModal/EmployeeModal";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -8,7 +9,9 @@ const Header = () => {
   return (
     <div className="flex h-[100px] items-center justify-between pr-[120px] pl-[120px]">
       <div className="flex a">
-        <h1 className="font-fredoka text-first text-logo">Momentum</h1>
+        <NavLink to={"/"} className="font-fredoka text-first text-logo">
+          Momentum
+        </NavLink>
         <img src={Hourglass} className="h-[38px]" />
       </div>
 
@@ -23,9 +26,12 @@ const Header = () => {
             </button>
           </li>
           <li>
-            <a href="#" className="py-[10px] px-[20px] bg-first text-white no-underline rounded-[5px] font-firaGo">
+            <Link
+              to="jobForm"
+              className="py-[10px] px-[20px]  bg-first text-white no-underline rounded-[5px] font-firaGo"
+            >
               + შექმენი ახალი დავალება
-            </a>
+            </Link>
           </li>
         </nav>
       </div>
