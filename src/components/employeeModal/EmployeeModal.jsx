@@ -17,13 +17,6 @@ const EmployeeModal = ({ isOpen, onClose }) => {
   const [departmentsApi, setDepartmentsApi] = useState([]);
 
   useEffect(() => {
-    fetch("https://momentum.redberryinternship.ge/api/9e6bfc4a-3b61-48b3-bcc4-35a0967ef379/employees")
-      .then((res) => res.json())
-      .then((data) => setDepartments(data))
-      .catch((err) => console.error("Error fetching departments:", err));
-  }, []);
-
-  useEffect(() => {
     axios.get("https://momentum.redberryinternship.ge/api/departments").then((response) => {
       setDepartmentsApi(
         response.data.map((item) => {

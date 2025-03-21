@@ -1,10 +1,5 @@
 import React from "react";
-import DepartmentDropdown from "../components/filterAssigments/Filter";
-import TaskProgress from "../components/taskProgress/TaskProgress";
-import JobForm from "../components/taskForm/TaskForm ";
 import Tasks from "../components/Tasks/Tasks";
-import TaskForm from "../components/taskForm/TaskForm ";
-// import Test from "./test";
 
 const Assignment = () => {
   return (
@@ -13,12 +8,12 @@ const Assignment = () => {
         <h1 className="font-firaGo text-4xl font-semibold pb-[52px] ">დავალებების გვერდი</h1>
       </div>
 
-      <div className="">
+      {/* 
+      <div className="z-10">
         <DepartmentDropdown />
-      </div>
+      </div> */}
 
-      <div>
-        <TaskProgress />
+      <div className="z-0">
         <Tasks />
       </div>
     </div>

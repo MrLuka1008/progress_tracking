@@ -18,12 +18,12 @@ const Header = () => {
       <div>
         <nav className="flex no-underline list-none gap-10">
           <li>
-            <button
+            <Link
               onClick={() => setIsModalOpen(true)}
               className="py-[9px] px-[19px] border-[1px] text-black no-underline rounded-[5px] font-firaGo"
             >
               თანამშრომლის შექმნა
-            </button>
+            </Link>
           </li>
           <li>
             <Link
